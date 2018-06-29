@@ -57,7 +57,7 @@ body, ::-webkit-input-placeholder {
 }
 
 .img-logo {
-	background-image: url(./img/Logo_ML@2X.png);
+	background-image: url(img/Logo_ML@2X.png);
 	background-position: center;
 	background-size: 58px;
 	background-repeat: no-repeat;
@@ -85,7 +85,7 @@ body, ::-webkit-input-placeholder {
 
 .search-button {
 	padding: 8px;
-	background-image: url(./img/ic_Search@2x.png);
+	background-image: url(img/ic_Search@2x.png);
 	background-position: center;
     background-repeat: no-repeat;
 	background-size: 18px;
