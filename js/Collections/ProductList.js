@@ -1,5 +1,6 @@
 'use strict'
 MercadoLivreApp.Collections.ProductList = Backbone.Collection.extend({
+	url: `${END_POINT}/sites/MLA/search`,
 	model: MercadoLivreApp.Models.ProductList,
 
 	sync: function(method, collection, options) {
@@ -7,7 +8,7 @@ MercadoLivreApp.Collections.ProductList = Backbone.Collection.extend({
 			let query = options.data.query;
 			let xhr   = new XMLHttpRequest();
 
-			xhr.open('GET', `${END_POINT}/sites/MLA/search?q=${query}&limit=4`, true);
+			xhr.open('GET', `${collection.url}?q=${query}&limit=4`, true);
 			xhr.onloadend = function() {
 				resolve(JSON.parse(this.responseText));
 			};

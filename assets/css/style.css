@@ -48,6 +48,17 @@ body {
 	background-color: var(--grey-4);
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+    background-color: transparent;
+	transition: color .2s;
+}
+
+a:hover {
+    color: #007BFF;
+}
+
 ::-webkit-input-placeholder {
 	font-family: var(--font-family);
 	color: var(--grey-3);
@@ -138,7 +149,8 @@ body {
 
 hr {
 	margin: 16px 0;
-	border: 1px solid var(--grey-4);
+	border-top: none;
+	border-bottom: 1px solid var(--grey-4);
 }
 
 .result-item img {

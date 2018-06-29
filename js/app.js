@@ -15,21 +15,7 @@ $(function() {
     Backbone.history.start();
 });
 
-
 /*
-function ajax(url = '', method = 'GET') {
-	return new Promise(resolve => {
-        let xhr = new XMLHttpRequest();
-
-        xhr.open(method, url, true);
-        xhr.onloadend = function() {
-            resolve(JSON.parse(this.responseText));
-        };
-
-        xhr.send();
-    });
-}
-
 async function getItem(id = '') {
 	let result = await Promise.all([
 		ajax(`${END_POINT}/items/${id}`),
