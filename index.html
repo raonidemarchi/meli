@@ -13,16 +13,49 @@
 		<link rel="preload" href="https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous">
 		<link rel="preload" href="https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-semibold.woff2" as="font" type="font/woff2" crossOrigin="anonymous">
 		<link rel="stylesheet" href="style.css">
+		
 	</head>
 	
 	<body>
 		<div class="navbar">
 			<div class="container">
-				<a href="javascript:void(0);" class="img-logo">Mercado Livre Brasil - Onde comprar e vender de Tudo</a>
+				<a href="" class="img-logo">Mercado Livre Brasil - Onde comprar e vender de Tudo</a>
 				
-				<div class="search-container">
-					<input type="text" name="search" placeholder="Nunca deixe de buscar">
-					<button type="button" class="search-button"></button>
+				<form name="form-search" action="https://api.mercadolibre.com/sites/MLA/search" class="search-container" onsubmit="event.preventDefault(); searchItens(this);">
+					<input type="text" name="query" placeholder="Nunca deixe de buscar">
+					<button type="submit"></button>
+				</form>
+			</div>
+		</div>
+		
+		<div id="content" class="content container">
+			<div class="breadcrumb">
+				asd<span class="breadcrumb-space">></span>asds<span class="breadcrumb-space">></span>asd 
+			</div>
+			
+			<div id="results" class="results">
+				<div class="result-item">
+					<img src="http://mla-s1-p.mlstatic.com/992625-MLA25473999673_032017-I.jpg">
+					
+					<div class="result-item-description">
+						<div class="price">$ 1.980<span class="free-shipping"></span></div>
+						<div class="title">Ipad 9.7 Ultimo Modelo 32gb Wifi Nuevos Garantia Oficial</div>
+					</div>
+					
+					<div class="city-name">Capital Federal</div>
+				</div>
+				
+				<hr>
+				
+				<div class="result-item">
+					<img src="http://mla-s1-p.mlstatic.com/992625-MLA25473999673_032017-I.jpg">
+					
+					<div class="result-item-description">
+						<div class="price">$ 1.980<span class="free-shipping"></span></div>
+						<div class="title">Ipad 9.7 Ultimo Modelo 32gb Wifi Nuevos Garantia Oficial</div>
+					</div>
+					
+					<div class="city-name">Capital Federal</div>
 				</div>
 			</div>
 		</div>

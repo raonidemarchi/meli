@@ -1,18 +1,22 @@
+'use strict'
+
 function ajax(url = '', method = 'GET') {
 	return new Promise(resolve => {
-        let r = new XMLHttpRequest();
+        let xhr = new XMLHttpRequest();
 
-        r.open(method, url, true);
-        r.onloadend = function() {
+        xhr.open(method, url, true);
+        xhr.onloadend = function() {
             resolve(this.responseText);
         };
 
-        r.send();
+        xhr.send();
     });
 }
 
-async function getAllUsers() {
-	console.log(await ajax('https://api.mercadolibre.com/sites/'));
+async function searchItens(form) {
+	let query  = form.querySelector('input[name=query]').value;
+	let action = form.action;
+	let result = JSON.parse(await ajax(`${action}?q=${query}&limit=4`));
+	
+	console.log(result);
 }
-
-getAllUsers();
