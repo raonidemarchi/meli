@@ -98,6 +98,10 @@ body {
 	background-color: var(--grey-4);
 }
 
+.content {
+	padding-bottom: 16px;
+}
+
 .breadcrumb {
 	padding: 16px 0;
 	font-size: 14px;
