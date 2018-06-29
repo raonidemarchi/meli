@@ -1,8 +1,22 @@
 'use strict'
-const END_POINT = 'https://api.mercadolibre.com';
+const END_POINT 	  = 'https://api.mercadolibre.com';
+const MercadoLivreApp = {
+    Models: {},
+	Views: {},
+    Collections: {},
+    Router: {}
+}
 
-document.getElementById('query').focus();
+// focus on the search input
+document.querySelector('#formSearch input').focus();
 
+$(function() { 
+    MercadoLivreApp.Router.Instance = new MercadoLivreApp.Router();
+    Backbone.history.start();
+});
+
+
+/*
 function ajax(url = '', method = 'GET') {
 	return new Promise(resolve => {
         let xhr = new XMLHttpRequest();
@@ -16,13 +30,6 @@ function ajax(url = '', method = 'GET') {
     });
 }
 
-async function search(form) {
-	let query  = form.querySelector('input[name=query]').value;
-	let result = await ajax(`${END_POINT}/sites/MLA/search?q=${query}&limit=4`);
-	
-	console.log(result);
-}
-
 async function getItem(id = '') {
 	let result = await Promise.all([
 		ajax(`${END_POINT}/items/${id}`),
@@ -30,4 +37,4 @@ async function getItem(id = '') {
 	]);
 	
 	console.log(result);
-}
+} */

@@ -17,7 +17,7 @@
 			<div class="container">
 				<a href="" class="img-logo">Mercado Livre Brasil - Onde comprar e vender de Tudo</a>
 				
-				<form name="form-search" action="https://api.mercadolibre.com/sites/MLA/search" class="search-container" onsubmit="event.preventDefault(); search(this);">
+				<form id="formSearch" name="form-search" action="https://api.mercadolibre.com/sites/MLA/search" class="search-container" onsubmit="event.preventDefault()">
 					<input type="text" id="query" name="query" placeholder="Nunca deixe de buscar">
 					<button type="submit"></button>
 				</form>
@@ -29,47 +29,61 @@
 				asd<span class="breadcrumb-space">></span>asds<span class="breadcrumb-space">></span>asd 
 			</div>
 			
-			<div id="results" class="card">
-				<a href="#" class="result-item" onclick="getItem('MLA717988441');">
-					<img src="http://mla-s1-p.mlstatic.com/992625-MLA25473999673_032017-I.jpg">
-					
-					<div class="result-item-description">
-						<div class="price">$ 1.980<span class="free-shipping"></span></div>
-						<div class="title">Ipad 9.7 Ultimo Modelo 32gb Wifi Nuevos Garantia Oficial</div>
-					</div>
-					
-					<div class="city-name">Capital Federal</div>
-				</a>
+			<div id="resultList" class="card">
 				
-				<hr>
-				
-				<a href="#" class="result-item" onclick="getItem('MLA717988441');">
-					<img src="http://mla-s1-p.mlstatic.com/992625-MLA25473999673_032017-I.jpg">
-					
-					<div class="result-item-description">
-						<div class="price">$ 1.980<span class="free-shipping"></span></div>
-						<div class="title">Ipad 9.7 Ultimo Modelo 32gb Wifi Nuevos Garantia Oficial</div>
-					</div>
-					
-					<div class="city-name">Capital Federal</div>
-				</a>
 			</div>
-			
-			
-			
-			<br>
-			
-			<div id="results" class="card item-detail">
+		</div>
+		
+		<!-- templates --->
+		<script type="text/template" id="itemTemplate">
+			<a href="#" class="result-item" onclick="getItem('MLA717988441');">
+				<img src="">
+				
+				<div class="result-item-description">
+					<div class="price"><%= url %><span class="free-shipping"></span></div>
+					<div class="title">Ipad 9.7 Ultimo Modelo 32gb Wifi Nuevos Garantia Oficial</div>
+				</div>
+				
+				<div class="city-name">Capital Federal</div>
+			</a>
+		</script>
+		
+		<script type="text/template" id="itemDetailTemplate">
+			<div class="item-detail">
 				<img class="item-detail-picture" src="https://mla-s2-p.mlstatic.com/601625-MLA26587913799_012018-O.jpg">
 				
 				<div class="item-detail-description">
 					<div class="sold">Usado - 230 vendidos</div>
-					<div class="price">Ipod 7ma Generación 16 Gb</div>
+					<div class="title-detail">Ipod 7ma Generación 16 Gb</div>
+					<div class="big-price">$ 19.822</div>
+					<button type="button" class="buy-button">Comprar</button>
 				</div>
 			</div>
 			
-		</div>
+			<div class="item-description-header">
+				Descrição do produto
+			</div>
+			
+			<div class="item-description">
+				Pantalla interior está rota.<br><br>
+
+				Funciona bien. Estado general 8/10. Pantalla exterior bien.<br><br>
+
+				No hago envíos.<br>
+				Se retira por Recoleta.
+			</div>
+		</script>
 		
-		<script src="init.js"></script>
+		<!-- libs -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://underscorejs.org/underscore.js" crossorigin></script>
+		<script src="http://backbonejs.org/backbone.js" crossorigin></script>
+		
+		<!-- custom -->
+		<script src="js/app.js"></script>
+		<script src="js/Models/ProductList.js"></script>
+		<script src="js/Collections/ProductList.js"></script>
+		<script src="js/Views/product-list.js"></script>
+		<script src="js/router.js"></script>
 	</body>
 </html>
