@@ -10,17 +10,10 @@ const MercadoLivreApp = {
 // focus on the search input
 document.querySelector('#formSearch input').focus();
 
+// form submitting event: redirect to search
+$('#formSearch').submit((e) => window.location.hash = 'items?search=' + e.delegateTarget.querySelector('input[name=query]').value.trim());
+
 $(function() { 
     MercadoLivreApp.Router.Instance = new MercadoLivreApp.Router();
     Backbone.history.start();
 });
-
-/*
-async function getItem(id = '') {
-	let result = await Promise.all([
-		ajax(`${END_POINT}/items/${id}`),
-		ajax(`${END_POINT}/items/${id}/description`)
-	]);
-	
-	console.log(result);
-} */

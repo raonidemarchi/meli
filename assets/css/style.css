@@ -102,6 +102,7 @@ a:hover {
 	padding: 8px 16px;
 	outline-width: 0;
 	width: 100%;
+	color: var(--grey-1)
 }
 
 .search-container > button {
@@ -163,7 +164,7 @@ hr {
 .result-item-description {
 	vertical-align: top;
 	margin: 16px;
-	width: 50%;
+	width: 70%;
 }
 
 .price, .title-detail {
@@ -235,4 +236,14 @@ hr {
 	padding: 16px;
 	font-size: 16px;
 	color: var(--grey-3);
+}
+
+@media (max-width: 800px) {
+	.card .item-detail {
+		display: block;
+	}
+	
+	.item-detail-description {
+		margin-left: 0;
+	}
 }
