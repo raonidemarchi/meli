@@ -8,10 +8,10 @@ MercadoLivreApp.Router = Backbone.Router.extend({
     },
 
     productList: function(query) {
-        let productListView = new MercadoLivreApp.Views.ProductList({ query: query });
+        new MercadoLivreApp.Views.ProductList({ query: query });
     },
 	
 	productDetail: function(id) {
-        let productDetailView = new MercadoLivreApp.Views.ProductDetail({ id: id });
+        new MercadoLivreApp.Views.ProductDetail({ id: id });
     },
 });

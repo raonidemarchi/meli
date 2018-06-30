@@ -34,5 +34,9 @@ MercadoLivreApp.Views.ProductDetail = Backbone.View.extend({
 		product.description    = product.plain_text.replace(/(?:\r\n|\r|\n)/g, '<br>');
 		
 		this.$el.html(this.template(product));
+
+		// SEO: change the description and image from head
+		PAGE_DESC.content = product.title;
+		PAGE_IMG.content  = product.pictures[0].url;
 	}
 });

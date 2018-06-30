@@ -7,6 +7,9 @@ const MercadoLivreApp = {
     Router: {}
 }
 
+let PAGE_DESC = document.querySelector('head meta[name=description]');
+let PAGE_IMG  = document.querySelector('head meta[property="og:image"]');
+
 // focus on the search input
 document.querySelector('#formSearch input').focus();
 

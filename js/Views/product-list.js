@@ -15,7 +15,8 @@ MercadoLivreApp.Views.ProductList = Backbone.View.extend({
 	},
 	
 	search: async function(query = '') {
-		let products = [];
+		let products 	  = [];
+		let categoryLimit = 4;
 		
 		this.$el.html('Carregando...');
 		
@@ -25,28 +26,31 @@ MercadoLivreApp.Views.ProductList = Backbone.View.extend({
 		this.breadcrumb.html('');
 		console.log(products);
 		
+		// no results
+		if(products.results.length == 0) {
+			this.$el.html('<p class="">Nenhum resultado encontrado para sua pesquisa - <b>' + query + '</b></p>');
+			return;
+		}
+
+		// showing products
 		for(let i in products.results) {
 			// format price
 			products.results[i].formated_price = (products.results[i].price).formatMoney(0, '', '.');
-			products.results[i].url_title      = products.results[i].title.replace(/[ ,-]/g, '_');
+			products.results[i].url_title      = products.results[i].title.replace(/[-,%, ]/g, '_');
 			
 			this.$el.append(this.template(products.results[i]));
 			
-			
-			
-			if(+i + 1 < products.results.length) {
+			if(+i + 1 < products.results.length)
 				this.$el.append('<hr>');
-				
-				
-			}
-			
-			if(i < 4) {
-				// add the category breadcrumb
-				this.breadcrumb.append(products.results[i].title.split(' ')[0]);
-				
-				if(i != 3)
-					this.breadcrumb.append('<span class="breadcrumb-space">></span>');
-			}
+		}
+
+		// showing category breadcrumb
+		for(let i = 0; i < categoryLimit; i++) {
+			// add the category breadcrumb
+			this.breadcrumb.append(products.results[i].title.split(' ')[0]);
+
+			if(i != categoryLimit - 1)
+				this.breadcrumb.append('<span class="breadcrumb-space">></span>');
 		}
 	}
 });
