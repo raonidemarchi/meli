@@ -32,12 +32,20 @@ MercadoLivreApp.Views.ProductList = Backbone.View.extend({
 			
 			this.$el.append(this.template(products.results[i]));
 			
-			// add the category breadcrumb
-			this.breadcrumb.append(products.results[i].title.split(' ')[0]);
+			
 			
 			if(+i + 1 < products.results.length) {
 				this.$el.append('<hr>');
-				this.breadcrumb.append('<span class="breadcrumb-space">></span>');
+				
+				
+			}
+			
+			if(i < 4) {
+				// add the category breadcrumb
+				this.breadcrumb.append(products.results[i].title.split(' ')[0]);
+				
+				if(i != 3)
+					this.breadcrumb.append('<span class="breadcrumb-space">></span>');
 			}
 		}
 	}
