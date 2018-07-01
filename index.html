@@ -2,10 +2,11 @@
 <html lang="pt-BR">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="theme-color" content="#FFE600">
 		<meta name="description" content="A maior Comunidade de compra e venda online da América Latina.">
 		<meta property="og:image" content="assets/img/mercado-libre.png">
-		<meta name="theme-color" content="#FFE600">
+
 		<title>Mercado livre</title>
 		
 		<link rel="canonical" href="https://www.mercadolivre.com.br/">
@@ -26,41 +27,111 @@
 		</div>
 		
 		<div id="content" class="content container">
-			<div id="breadcrumb" class="breadcrumb">
-				
-			</div>
+			<div id="breadcrumb" class="breadcrumb"></div>
 			
-			<div id="result" class="card"></div>
+			<div id="result" class="card">				
+			</div>
 		</div>
 		
 		<!-- templates -->
 		<script type="text/template" id="itemTemplate">
 			<a href="#items/<%= id %>-<%= url_title %>" class="result-item">
-				<img src="<%= thumbnail %>">
+				<div class="image-wrap">
+					<img src="<%= thumbnail %>">
+				</div>
 				
 				<div class="result-item-description">
 					<div class="price">$ <%= formated_price %><% if(shipping.free_shipping) { %><span class="free-shipping"></span><% } %></div>
 					<div class="title"><%= title %></div>
+					<div class="city-name-mobile"><%= address.city_name %></div>
 				</div>
 				
 				<div class="city-name"><%= address.city_name %></div>
 			</a>
 		</script>
+
+		<script type="text/template" id="itemLoadingTemplate">
+			<div class="result-item">
+				<div class="image-wrap">
+					<div class="placeholder-loading" style="max-width: 180px; padding-bottom: 100%;"></div>
+				</div>
+				
+				<div class="result-item-description">
+					<div class="placeholder-loading" style="width: 75%; max-width: 200px; height: 24px; margin-bottom: 32px;"></div>
+					<div class="placeholder-loading" style="height: 18px; margin-bottom: 8px;"></div>
+					<div class="placeholder-loading" style="height: 18px; width: 50%;"></div>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="result-item">
+				<div class="image-wrap">
+					<div class="placeholder-loading" style="max-width: 180px; padding-bottom: 100%;"></div>
+				</div>
+				
+				<div class="result-item-description">
+					<div class="placeholder-loading" style="width: 75%; max-width: 200px; height: 24px; margin-bottom: 32px;"></div>
+					<div class="placeholder-loading" style="height: 18px; margin-bottom: 8px;"></div>
+					<div class="placeholder-loading" style="height: 18px; width: 50%;"></div>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="result-item">
+				<div class="image-wrap">
+					<div class="placeholder-loading" style="max-width: 180px; padding-bottom: 100%;"></div>
+				</div>
+				
+				<div class="result-item-description">
+					<div class="placeholder-loading" style="width: 75%; max-width: 200px; height: 24px; margin-bottom: 32px;"></div>
+					<div class="placeholder-loading" style="height: 18px; margin-bottom: 8px;"></div>
+					<div class="placeholder-loading" style="height: 18px; width: 50%;"></div>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="result-item">
+				<div class="image-wrap">
+					<div class="placeholder-loading" style="max-width: 180px; padding-bottom: 100%;"></div>
+				</div>
+				
+				<div class="result-item-description">
+					<div class="placeholder-loading" style="width: 75%; max-width: 200px; height: 24px; margin-bottom: 32px;"></div>
+					<div class="placeholder-loading" style="height: 18px; margin-bottom: 8px;"></div>
+					<div class="placeholder-loading" style="height: 18px; width: 50%;"></div>
+				</div>
+			</div>
+		</script>
 		
 		<script type="text/template" id="itemDetailTemplate">
 			<div class="item-detail">
-				<img class="item-detail-picture" src="<%= pictures[0].url %>">
+				<div class="item-detail-picture">
+					<img src="<%= pictures[0].url %>">
+				</div>
 				
 				<div class="item-detail-description">
 					<div class="sold"><%= condition_text %> - <%= sold_quantity %> vendidos</div>
 					<div class="title-detail"><%= title %></div>
-					<div class="big-price">$ <%= formated_price %></div>
+					<div class="price-wrapper">
+						<div class="big-price">$ <%= formated_price %><div class="cents">00</div></div>
+					</div>
 					<button type="button" class="buy-button">Comprar</button>
 				</div>
 			</div>
 			
 			<div class="item-description-header">Descrição do produto</div>
 			<div class="item-description"><%= description %></div>
+		</script>
+
+		<script type="text/template" id="itemDetailErrorTemplate">
+			<div class="error-container">
+				<p><i class="fas fa-shopping-cart"></i></p>
+				<p>Produto não encontrado</p>
+				<a href="">Voltar para tela inicial</a>
+			</div>
 		</script>
 		
 		<!-- libs -->

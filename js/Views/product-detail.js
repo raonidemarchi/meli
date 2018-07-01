@@ -1,7 +1,9 @@
 'use strict'
 MercadoLivreApp.Views.ProductDetail = Backbone.View.extend({
 	el: $('#result'),
+	breadcrumb: $('#breadcrumb'),
 	template: _.template($('#itemDetailTemplate').html()),
+	templateError: _.template($('#itemDetailErrorTemplate').html()),
 	collection: new MercadoLivreApp.Collections.ProductDetail,
 	collectionDescription: new MercadoLivreApp.Collections.ProductDescription,
 	
@@ -25,6 +27,11 @@ MercadoLivreApp.Views.ProductDetail = Backbone.View.extend({
 			this.collectionDescription.fetch({ data: { id: id }})
 		]);
 		
+		if(results[0].status == 404) {
+			this.$el.html(this.templateError());
+			return;
+		}
+
 		product = { ...results[0], ...results[1] };
 		
 		console.log(product);
@@ -35,8 +42,12 @@ MercadoLivreApp.Views.ProductDetail = Backbone.View.extend({
 		
 		this.$el.html(this.template(product));
 
+		// breadcrumb (category)
+		this.breadcrumb.html(product.category_id);
+
 		// SEO: change the description and image from head
 		PAGE_DESC.content = product.title;
 		PAGE_IMG.content  = product.pictures[0].url;
+		PAGE_URL.href	  = document.URL;
 	}
 });

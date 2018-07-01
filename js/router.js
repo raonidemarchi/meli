@@ -3,7 +3,7 @@ MercadoLivreApp.Router = Backbone.Router.extend({
     routes: {
 		'': 'productList',
 		'items?search=:query': 'productList',
-		'items/:id-*path': 'productDetail',
+		'items/:id-*path': 'productDetail', // receive the product description for SEO optimization
 		'*path': 'productList',
     },
 

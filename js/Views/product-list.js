@@ -3,6 +3,7 @@ MercadoLivreApp.Views.ProductList = Backbone.View.extend({
 	el: $('#result'),
 	breadcrumb: $('#breadcrumb'),
 	template: _.template($('#itemTemplate').html()),
+	templateLoading: _.template($('#itemLoadingTemplate').html()),
 	collection: new MercadoLivreApp.Collections.ProductList,
 	
 	initialize: function(options) {
@@ -15,20 +16,20 @@ MercadoLivreApp.Views.ProductList = Backbone.View.extend({
 	},
 	
 	search: async function(query = '') {
-		let products 	  = [];
-		let categoryLimit = 4;
+		let products 	  	 = [];
 		
-		this.$el.html('Carregando...');
+		this.$el.html(this.templateLoading());
 		
 		products = await this.collection.fetch({ data: { query: query }});
 		
 		this.$el.html('');
 		this.breadcrumb.html('');
+
 		console.log(products);
 		
 		// no results
 		if(products.results.length == 0) {
-			this.$el.html('<p class="">Nenhum resultado encontrado para sua pesquisa - <b>' + query + '</b></p>');
+			this.$el.html('<p>Nenhum resultado encontrado para sua pesquisa - <b>' + query + '</b></p>');
 			return;
 		}
 
@@ -44,12 +45,17 @@ MercadoLivreApp.Views.ProductList = Backbone.View.extend({
 				this.$el.append('<hr>');
 		}
 
-		// showing category breadcrumb
-		for(let i = 0; i < categoryLimit; i++) {
-			// add the category breadcrumb
-			this.breadcrumb.append(products.results[i].title.split(' ')[0]);
+		// categories
+		for(let i in products.filters) {
+			for(let j in products.filters[i].values) {
+				// add the category breadcrumb
+				this.breadcrumb.append('<span>' + products.filters[i].values[j].name + '<span>');
 
-			if(i != categoryLimit - 1)
+				if(+j + 1 < products.filters[i].values.length)
+					this.breadcrumb.append('<span class="breadcrumb-space">></span>');
+			}
+
+			if(+i + 1 < products.filters.length)
 				this.breadcrumb.append('<span class="breadcrumb-space">></span>');
 		}
 	}
