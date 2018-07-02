@@ -23,7 +23,7 @@ $('#formSearch').submit(e => {
     if(query === '')
         return;
 
-    window.location.hash = 'items?search=' + query;
+    window.location.hash = 'items?search=' + encodeURI(query).replace(/\//g, '%2F');
 });
 
 $(function() { 

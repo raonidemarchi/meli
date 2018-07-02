@@ -42,7 +42,7 @@ MercadoLivreApp.Views.ProductList = Backbone.View.extend({
 		for(let i in products.results) {
 			// format price
 			products.results[i].formated_price = (products.results[i].price).formatMoney(0, '', '.');
-			products.results[i].url_title      = products.results[i].title.replace(/[-,%, ]/g, '_');
+			products.results[i].url_title      = encodeURI(products.results[i].title.replace(/[-, ]/g, '_').replace(/\//g, '%2F'));
 			
 			this.$el.append(this.template(products.results[i]));
 			
