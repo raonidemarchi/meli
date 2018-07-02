@@ -4,6 +4,7 @@ MercadoLivreApp.Views.ProductList = Backbone.View.extend({
 	breadcrumb: $('#breadcrumb'),
 	template: _.template($('#itemTemplate').html()),
 	templateLoading: _.template($('#itemLoadingTemplate').html()),
+	templateBreadcrumbLoading: _.template($('#breadcrumbLoadingTemplate').html()),
 	collection: new MercadoLivreApp.Collections.ProductList,
 	
 	initialize: function(options) {
@@ -16,24 +17,28 @@ MercadoLivreApp.Views.ProductList = Backbone.View.extend({
 	},
 	
 	search: async function(query = '') {
-		let products 	  	 = [];
+		let products = [];
 		
-		this.$el.html(this.templateLoading());
+		// loading
+		this.$el.html(
+			this.templateLoading() + '<hr>' + this.templateLoading() + '<hr>' + this.templateLoading() + '<hr>' + this.templateLoading()
+		);
+		this.breadcrumb.html(this.templateBreadcrumbLoading());
 		
 		products = await this.collection.fetch({ data: { query: query }});
-		
-		this.$el.html('');
-		this.breadcrumb.html('');
 
-		console.log(products);
+		console.log('products list', products);
 		
 		// no results
 		if(products.results.length == 0) {
 			this.$el.html('<p>Nenhum resultado encontrado para sua pesquisa - <b>' + query + '</b></p>');
+			this.breadcrumb.html('');
 			return;
 		}
 
 		// showing products
+		this.$el.html('');
+		
 		for(let i in products.results) {
 			// format price
 			products.results[i].formated_price = (products.results[i].price).formatMoney(0, '', '.');
@@ -46,6 +51,8 @@ MercadoLivreApp.Views.ProductList = Backbone.View.extend({
 		}
 
 		// categories
+		this.breadcrumb.html('');
+
 		for(let i in products.filters) {
 			for(let j in products.filters[i].values) {
 				// add the category breadcrumb
@@ -57,6 +64,14 @@ MercadoLivreApp.Views.ProductList = Backbone.View.extend({
 
 			if(+i + 1 < products.filters.length)
 				this.breadcrumb.append('<span class="breadcrumb-space">></span>');
+		}
+
+		// SEO: change the meta from head
+		if(query !== null && query !== '') {
+			PAGE_TITLE.innerText = `${query.capitalize()} no Mercado Livre`;
+			PAGE_DESC.content 	 = PAGE_TITLE.innerText;
+			PAGE_IMG.content  	 = products.thumbnail;
+			PAGE_URL.href	  	 = document.URL;
 		}
 	}
 });

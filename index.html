@@ -7,7 +7,7 @@
 		<meta name="description" content="A maior Comunidade de compra e venda online da América Latina.">
 		<meta property="og:image" content="assets/img/mercado-libre.png">
 
-		<title>Mercado livre</title>
+		<title>Mercado Livre</title>
 		
 		<link rel="canonical" href="https://www.mercadolivre.com.br/">
 		<link rel="shortcut icon" href="assets/img/favicon.ico">
@@ -15,6 +15,7 @@
 	</head>
 	
 	<body>
+		<!-- search bar -->
 		<div class="navbar">
 			<div class="container">
 				<a href="" class="img-logo">Mercado Livre Brasil - Onde comprar e vender de Tudo</a>
@@ -26,14 +27,13 @@
 			</div>
 		</div>
 		
+		<!-- content -->
 		<div id="content" class="content container">
 			<div id="breadcrumb" class="breadcrumb"></div>
-			
-			<div id="result" class="card">				
-			</div>
+			<div id="result" class="card"></div>
 		</div>
 		
-		<!-- templates -->
+		<!-- product list template -->
 		<script type="text/template" id="itemTemplate">
 			<a href="#items/<%= id %>-<%= url_title %>" class="result-item">
 				<div class="image-wrap">
@@ -50,49 +50,8 @@
 			</a>
 		</script>
 
+		<!-- product list loading template -->
 		<script type="text/template" id="itemLoadingTemplate">
-			<div class="result-item">
-				<div class="image-wrap">
-					<div class="placeholder-loading" style="max-width: 180px; padding-bottom: 100%;"></div>
-				</div>
-				
-				<div class="result-item-description">
-					<div class="placeholder-loading" style="width: 75%; max-width: 200px; height: 24px; margin-bottom: 32px;"></div>
-					<div class="placeholder-loading" style="height: 18px; margin-bottom: 8px;"></div>
-					<div class="placeholder-loading" style="height: 18px; width: 50%;"></div>
-				</div>
-			</div>
-
-			<hr>
-
-			<div class="result-item">
-				<div class="image-wrap">
-					<div class="placeholder-loading" style="max-width: 180px; padding-bottom: 100%;"></div>
-				</div>
-				
-				<div class="result-item-description">
-					<div class="placeholder-loading" style="width: 75%; max-width: 200px; height: 24px; margin-bottom: 32px;"></div>
-					<div class="placeholder-loading" style="height: 18px; margin-bottom: 8px;"></div>
-					<div class="placeholder-loading" style="height: 18px; width: 50%;"></div>
-				</div>
-			</div>
-
-			<hr>
-
-			<div class="result-item">
-				<div class="image-wrap">
-					<div class="placeholder-loading" style="max-width: 180px; padding-bottom: 100%;"></div>
-				</div>
-				
-				<div class="result-item-description">
-					<div class="placeholder-loading" style="width: 75%; max-width: 200px; height: 24px; margin-bottom: 32px;"></div>
-					<div class="placeholder-loading" style="height: 18px; margin-bottom: 8px;"></div>
-					<div class="placeholder-loading" style="height: 18px; width: 50%;"></div>
-				</div>
-			</div>
-
-			<hr>
-
 			<div class="result-item">
 				<div class="image-wrap">
 					<div class="placeholder-loading" style="max-width: 180px; padding-bottom: 100%;"></div>
@@ -106,6 +65,7 @@
 			</div>
 		</script>
 		
+		<!-- product detail template -->
 		<script type="text/template" id="itemDetailTemplate">
 			<div class="item-detail">
 				<div class="item-detail-picture">
@@ -115,9 +75,7 @@
 				<div class="item-detail-description">
 					<div class="sold"><%= condition_text %> - <%= sold_quantity %> vendidos</div>
 					<div class="title-detail"><%= title %></div>
-					<div class="price-wrapper">
-						<div class="big-price">$ <%= formated_price %><div class="cents">00</div></div>
-					</div>
+					<div class="big-price">$ <%= formated_price %><div class="cents">00</div></div>
 					<button type="button" class="buy-button">Comprar</button>
 				</div>
 			</div>
@@ -126,12 +84,39 @@
 			<div class="item-description"><%= description %></div>
 		</script>
 
+		<!-- product detail loading template -->
+		<script type="text/template" id="itemDetailLoadingTemplate">
+			<div class="item-detail">
+				<div class="item-detail-picture">
+					<div class="placeholder-loading" style="max-width: 680px; padding-bottom: 70%;"></div>
+				</div>
+				
+				<div class="item-detail-description">
+					<div class="sold"><div class="placeholder-loading" style="height: 14px; width: 50%;"></div></div>
+					<div class="title-detail"><div class="placeholder-loading" style="height: 24px;"></div></div>
+					<div class="big-price"><div class="placeholder-loading" style="height: 46px;"></div></div>
+					<div class="placeholder-loading" style="height: 44px;"></div>
+				</div>
+			</div>
+			
+			<div class="item-description-header"><div class="placeholder-loading" style="height: 28px; max-width: 300px;"></div></div>
+			<div class="item-description">
+				<div class="placeholder-loading" style="height: 16px; margin-bottom: 8px;"></div>
+				<div class="placeholder-loading" style="height: 16px; width: 50%;"></div>
+			</div>
+		</script>
+
+		<!-- product detail error template -->
 		<script type="text/template" id="itemDetailErrorTemplate">
 			<div class="error-container">
-				<p><i class="fas fa-shopping-cart"></i></p>
 				<p>Produto não encontrado</p>
 				<a href="">Voltar para tela inicial</a>
 			</div>
+		</script>
+
+		<!-- product detail error template -->
+		<script type="text/template" id="breadcrumbLoadingTemplate">
+			<div class="placeholder-loading" style="height: 20px; max-width: 100px; background-color: #ddd;"></div>
 		</script>
 		
 		<!-- libs -->
@@ -148,11 +133,14 @@
 		<!-- Models -->
 		<script src="js/Models/ProductList.js"></script>
 		<script src="js/Models/ProductDetail.js"></script>
+		<script src="js/Models/ProductDescription.js"></script>
+		<script src="js/Models/ProductCategory.js"></script>
 		
 		<!-- Collections -->
 		<script src="js/Collections/ProductList.js"></script>
 		<script src="js/Collections/ProductDetail.js"></script>
 		<script src="js/Collections/ProductDescription.js"></script>
+		<script src="js/Collections/ProductCategory.js"></script>
 		
 		<!-- Views -->
 		<script src="js/Views/product-list.js"></script>

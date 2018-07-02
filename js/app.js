@@ -7,16 +7,17 @@ const MercadoLivreApp = {
     Router: {}
 }
 
+let PAGE_TITLE = document.querySelector('head title');
 let PAGE_DESC  = document.querySelector('head meta[name=description]');
 let PAGE_IMG   = document.querySelector('head meta[property="og:image"]');
 let PAGE_URL   = document.querySelector('head link[rel=canonical]');
 
-// focus on the search input
-document.querySelector('#formSearch input').focus();
-
 // form submitting event: redirect to search
 $('#formSearch').submit(e => {
-    let query = e.delegateTarget.querySelector('input[name=query]').value.trim();
+    let input = e.delegateTarget.querySelector('input[name=query]');
+    let query = input.value.trim();
+
+    input.blur();
 
     // cancel if the search is empty
     if(query === '')
@@ -28,4 +29,8 @@ $('#formSearch').submit(e => {
 $(function() { 
     MercadoLivreApp.Router.Instance = new MercadoLivreApp.Router();
     Backbone.history.start();
+
+    // focus on the search input
+    if(document.querySelector('#formSearch input').value == '')
+       document.querySelector('#formSearch input').focus();
 });

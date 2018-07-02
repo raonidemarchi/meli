@@ -1,7 +1,7 @@
 'use strict'
 MercadoLivreApp.Collections.ProductDescription = Backbone.Collection.extend({
 	url: `${END_POINT}/items/`,
-	model: MercadoLivreApp.Models.ProductDetail,
+	model: MercadoLivreApp.Models.ProductDescription,
 
 	sync: function(method, collection, options) {
 		return new Promise(resolve => {

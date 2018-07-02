@@ -214,7 +214,7 @@ hr {
 
 .item-detail-picture {
 	max-width: 680px;
-    width: 100%;
+    width: 70%;
 }
 
 .item-detail-picture > img {
@@ -231,14 +231,10 @@ hr {
 	font-size: 14px;
 }
 
-.price-wrapper {
-	white-space: nowrap;
-}
-
 .big-price {
+	white-space: nowrap;
 	font-size: 46px;
 	margin-bottom: 32px;
-	display: inline-block;
 	line-height: 1;
 }
 
@@ -299,6 +295,11 @@ hr {
 		display: block;
 	}
 	
+	.item-detail-picture {
+		margin-bottom: 16px;
+		width: 100%;
+	}
+
 	.item-detail-description {
 		margin-left: 0;
 	}
