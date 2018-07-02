@@ -15,6 +15,9 @@ MercadoLivreApp.Views.ProductDetail = Backbone.View.extend({
 	},
 	
 	render: function(options) {
+		// roll the page to the top
+		$('html, body').scrollTop(0);
+
 		if(options.id !== undefined)
 			this.getItem(options.id);
 	},
