@@ -23,9 +23,11 @@ MercadoLivreApp.Views.ProductDetail = Backbone.View.extend({
 	},
 	
 	getItem: async function(id = '') {
-		let results  = [];
-		let product  = {};
-		let category = {};
+		let results   = [];
+		let product   = {};
+		let category  = {};
+		let isFirefox = typeof InstallTrigger !== 'undefined';
+		let isChrome  = !!window.chrome && !!window.chrome.webstore;
 		
 		// loading
 		this.$el.html(this.templateLoading());
@@ -40,10 +42,11 @@ MercadoLivreApp.Views.ProductDetail = Backbone.View.extend({
 			this.$el.html(this.templateError());
 			return;
 		}
-
-		product = { ...results[0], ...results[1] };
 		
-		console.log('product details + description', product);
+		// Merge objects. New method for EcmaScript 2018: product = { ...results[0], ...results[1] } (Today, only supported by Chrome and Firefox);
+		product = Object.assign({}, results[0], results[1]);
+		
+		console.log('product details and description', product);
 		
 		product.formated_price = (product.price).formatMoney(0, '', '.');
 		product.condition_text = product.condition === 'new' ? 'Novo' : 'Usado';
