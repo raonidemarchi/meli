@@ -26,8 +26,6 @@ MercadoLivreApp.Views.ProductDetail = Backbone.View.extend({
 		let results   = [];
 		let product   = {};
 		let category  = {};
-		let isFirefox = typeof InstallTrigger !== 'undefined';
-		let isChrome  = !!window.chrome && !!window.chrome.webstore;
 		
 		// loading
 		this.$el.html(this.templateLoading());
