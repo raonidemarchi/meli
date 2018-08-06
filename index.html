@@ -1,41 +1,4 @@
-<!doctype html>
-<html lang="pt-BR">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<meta name="theme-color" content="#FFE600">
-		<meta name="description" content="A maior Comunidade de compra e venda online da América Latina.">
-		<meta property="og:image" content="assets/img/mercado-libre.png">
-
-		<title>Mercado Livre</title>
-		
-		<link rel="canonical" href="https://www.mercadolivre.com.br/">
-		<link rel="shortcut icon" href="assets/img/favicon.ico">
-		<link rel="stylesheet" href="assets/css/style.css">
-	</head>
-	
-	<body>
-		<!-- search bar -->
-		<div class="navbar">
-			<div class="container">
-				<a href="" class="img-logo">Mercado Livre Brasil - Onde comprar e vender de Tudo</a>
-				
-				<form id="formSearch" name="form-search" action="https://api.mercadolibre.com/sites/MLA/search" class="search-container" onsubmit="event.preventDefault()">
-					<input type="search" id="query" name="query" placeholder="Nunca deixe de buscar" autocomplete="off">
-					<button type="submit"></button>
-				</form>
-			</div>
-		</div>
-		
-		<!-- content -->
-		<div id="content" class="content container">
-			<div id="breadcrumb" class="breadcrumb"></div>
-			<div id="result" class="card"></div>
-		</div>
-		
-		<!-- product list template -->
-		<script type="text/template" id="itemTemplate">
-			<a href="#items/<%= id %>-<%= url_title %>" class="result-item">
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="theme-color" content="#FFE600"><meta name="description" content="A maior Comunidade de compra e venda online da América Latina."><meta property="og:image" content="assets/img/mercado-libre.png"><title>Mercado Livre</title><link rel="canonical" href="https://www.mercadolivre.com.br/"><link rel="shortcut icon" href="assets/img/favicon.ico"><link rel="stylesheet" href="css/all.min.css"></head><body><!-- search bar --><div class="navbar"><div class="container"><a href="" class="img-logo">Mercado Livre Brasil - Onde comprar e vender de Tudo</a><form id="formSearch" name="form-search" action="https://api.mercadolibre.com/sites/MLA/search" class="search-container" onsubmit="event.preventDefault()"><input type="search" id="query" name="query" placeholder="Nunca deixe de buscar" autocomplete="off"> <button type="submit"></button></form></div></div><!-- content --><div id="content" class="content container"><div id="breadcrumb" class="breadcrumb"></div><div id="result" class="card"></div></div><!-- product list template --><script type="text/template" id="itemTemplate"><a href="#items/<%= id %>-<%= url_title %>" class="result-item">
 				<div class="image-wrap">
 					<img src="<%= thumbnail %>">
 				</div>
@@ -47,12 +10,7 @@
 				</div>
 				
 				<div class="city-name"><%= address.city_name %></div>
-			</a>
-		</script>
-
-		<!-- product list loading template -->
-		<script type="text/template" id="itemLoadingTemplate">
-			<div class="result-item">
+			</a></script><!-- product list loading template --><script type="text/template" id="itemLoadingTemplate"><div class="result-item">
 				<div class="image-wrap">
 					<div class="placeholder-loading" style="max-width: 180px; padding-bottom: 100%;"></div>
 				</div>
@@ -62,12 +20,7 @@
 					<div class="placeholder-loading" style="height: 18px; margin-bottom: 8px;"></div>
 					<div class="placeholder-loading" style="height: 18px; width: 50%;"></div>
 				</div>
-			</div>
-		</script>
-		
-		<!-- product detail template -->
-		<script type="text/template" id="itemDetailTemplate">
-			<div class="item-detail">
+			</div></script><!-- product detail template --><script type="text/template" id="itemDetailTemplate"><div class="item-detail">
 				<div class="item-detail-picture">
 					<img src="<%= pictures[0].url %>">
 				</div>
@@ -81,12 +34,7 @@
 			</div>
 			
 			<div class="item-description-header">Descrição do produto</div>
-			<div class="item-description"><%= description %></div>
-		</script>
-
-		<!-- product detail loading template -->
-		<script type="text/template" id="itemDetailLoadingTemplate">
-			<div class="item-detail">
+			<div class="item-description"><%= description %></div></script><!-- product detail loading template --><script type="text/template" id="itemDetailLoadingTemplate"><div class="item-detail">
 				<div class="item-detail-picture">
 					<div class="placeholder-loading" style="max-width: 680px; padding-bottom: 70%;"></div>
 				</div>
@@ -103,48 +51,7 @@
 			<div class="item-description">
 				<div class="placeholder-loading" style="height: 16px; margin-bottom: 8px;"></div>
 				<div class="placeholder-loading" style="height: 16px; width: 50%;"></div>
-			</div>
-		</script>
-
-		<!-- product detail error template -->
-		<script type="text/template" id="itemDetailErrorTemplate">
-			<div class="error-container">
+			</div></script><!-- product detail error template --><script type="text/template" id="itemDetailErrorTemplate"><div class="error-container">
 				<p>Produto não encontrado</p>
 				<a href="">Voltar para tela inicial</a>
-			</div>
-		</script>
-
-		<!-- product detail error template -->
-		<script type="text/template" id="breadcrumbLoadingTemplate">
-			<div class="placeholder-loading" style="height: 20px; max-width: 100px; background-color: #ddd;"></div>
-		</script>
-		
-		<!-- libs -->
-		<script src="assets/js/jquery-3.3.1.min.js"></script>
-		<script src="assets/js/underscore-min.js"></script>
-		<script src="assets/js/backbone-min.js"></script>
-		
-		<!-- helper -->
-		<script src="js/helper.js"></script>
-		
-		<!-- app -->
-		<script src="js/app.js"></script>
-		
-		<!-- Models -->
-		<script src="js/Models/ProductList.js"></script>
-		<script src="js/Models/ProductDetail.js"></script>
-		<script src="js/Models/ProductDescription.js"></script>
-		<script src="js/Models/ProductCategory.js"></script>
-		
-		<!-- Collections -->
-		<script src="js/Collections/ProductList.js"></script>
-		<script src="js/Collections/ProductDetail.js"></script>
-		<script src="js/Collections/ProductDescription.js"></script>
-		<script src="js/Collections/ProductCategory.js"></script>
-		
-		<!-- Views -->
-		<script src="js/Views/product-list.js"></script>
-		<script src="js/Views/product-detail.js"></script>
-		<script src="js/router.js"></script>	
-	</body>
-</html>
+			</div></script><!-- product detail error template --><script type="text/template" id="breadcrumbLoadingTemplate"><div class="placeholder-loading" style="height: 20px; max-width: 100px; background-color: #ddd;"></div></script><!-- libs --><script src="js/all.min.js"></script></body></html>
