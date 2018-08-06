@@ -1,0 +1,42 @@
+{
+  "name": "meli",
+  "version": "1.0.0",
+  "description": "Teste mercado livre",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server/server.js",
+    "start": "nodemon server/server-prod.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raonidemarchi/meli.git"
+  },
+  "keywords": [
+    "meli"
+  ],
+  "author": "Raoni Demarchi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raonidemarchi/meli/issues"
+  },
+  "homepage": "https://github.com/raonidemarchi/meli#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-minify": "^0.4.3",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-html-minifier2": "^1.1.8",
+    "gulp-merge": "^0.1.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.1",
+    "nodemon": "^1.18.3",
+    "qunit": "^2.6.1"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
