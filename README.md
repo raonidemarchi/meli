@@ -1,3 +1,5 @@
-# meli
+# Mercado Livre
 
-Acesse o site em https://raonidemarchi.github.io/meli/.
+## Demo
+
+Para usar o app, acesse: https://raonidemarchi.github.io/meli/.
