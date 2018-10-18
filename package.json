@@ -1,19 +1,22 @@
 {
-  "name": "meli",
+  "name": "mercadolivre",
   "version": "1.0.0",
   "description": "Teste mercado livre",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon server/server.js",
     "start": "nodemon server/server-prod.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "npm run gulp && npm test",
+    "gulp": "gulp dist",
+    "test": "qunit test/*.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/raonidemarchi/meli.git"
   },
   "keywords": [
-    "meli"
+    "meli",
+    "mercadolivre"
   ],
   "author": "Raoni Demarchi",
   "license": "ISC",
@@ -31,8 +34,8 @@
     "gulp-concat": "^2.6.1",
     "gulp-html-minifier2": "^1.1.8",
     "gulp-merge": "^0.1.1",
+    "gulp-remove-logging": "^1.2.0",
     "gulp-rename": "^1.4.0",
-    "gulp-uglify": "^3.0.1",
     "nodemon": "^1.18.3",
     "qunit": "^2.6.1"
   },

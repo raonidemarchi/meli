@@ -1,16 +1,4 @@
 'use strict'
-const END_POINT 	  = 'https://api.mercadolibre.com';
-const MercadoLivreApp = {
-    Models: {},
-	Views: {},
-    Collections: {},
-    Router: {}
-}
-
-let PAGE_TITLE = document.querySelector('head title');
-let PAGE_DESC  = document.querySelector('head meta[name=description]');
-let PAGE_IMG   = document.querySelector('head meta[property="og:image"]');
-let PAGE_URL   = document.querySelector('head link[rel=canonical]');
 
 // form submitting event: redirect to search
 $('#formSearch').submit(e => {

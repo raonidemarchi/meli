@@ -1,10 +1,11 @@
-var gulp   	 = require('gulp');
-var htmlmin  = require('gulp-html-minifier2');
-var babel 	 = require('gulp-babel');
-var concat 	 = require('gulp-concat');
-var rename 	 = require('gulp-rename');
-var merge 	 = require('gulp-merge');
-var cleanCSS = require('gulp-clean-css');
+var gulp   	 			= require('gulp');
+var htmlmin  			= require('gulp-html-minifier2');
+var babel 	 			= require('gulp-babel');
+var concat 	 			= require('gulp-concat');
+var rename 	 			= require('gulp-rename');
+var merge 	 			= require('gulp-merge');
+var cleanCSS 			= require('gulp-clean-css');
+var gulp_remove_logging = require("gulp-remove-logging");
 
 // JS files
 var dest = 'dist/';
@@ -20,6 +21,7 @@ gulp.task('js', () => {
     return merge(
 		gulp.src(['assets/js/jquery-3.3.1.min.js', 'assets/js/underscore-min.js', 'assets/js/backbone-min.js']),
 		gulp.src(['js/*.js', 'js/**/*.js'])
+			.pipe(gulp_remove_logging())
 			.pipe(babel({
 				presets: ['minify']
 			}))
@@ -50,4 +52,4 @@ gulp.task('map', () => {
 		.pipe(gulp.dest(dest + 'js/'));
 });
 
-gulp.task('default', ['html', 'js', 'css', 'font', 'img', 'map']);
+gulp.task('dist', ['html', 'js', 'css', 'font', 'img', 'map']);

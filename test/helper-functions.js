@@ -1,4 +1,5 @@
 'use strict'
+
 require('../js/helper.js');
 QUnit.module('Helper functions');
 
