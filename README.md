@@ -61,6 +61,7 @@
     ```sh
     $ npm start
     ```
+    *This will start the express server on the local server: [http://localhost](http://localhost)*
 
 ## Tests
 
