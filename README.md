@@ -25,14 +25,20 @@
     ```sh
     $ npm install -g nodemon
     ```
+    
+5. Install [Sass](https://sass-lang.com/install) globally:
 
-5. Install [QUnit](https://qunitjs.com/) globally:
+    ```sh
+    $ npm install -g sass
+    ```
+
+6. Install [QUnit](https://qunitjs.com/) globally:
 
     ```sh
     $ npm install -g qunit
     ```
 
-6. Run the `dev` script:
+7. Run the `dev` script:
 
     ```sh
     $ npm run dev
