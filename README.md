@@ -1,5 +1,7 @@
 # Mercado Livre Search
 
+> A simple search application using the mercado libre API's.
+
 ## Development
 
 *Make sure to have [Git](http://git-scm.com/) and [Node](http://nodejs.org/) installed.*
@@ -67,3 +69,11 @@ The tests will run in the terminal using QUnit.
 ## Live Demo
 
 To access the live demo visit: https://raonidemarchi.github.io/meli/.
+
+
+## Used API's
+
+- https://api.mercadolibre.com/
+- https://api.mercadolibre.com/sites/MLA/search?category
+- https://api.mercadolibre.com/sites/MLA/search
+- https://api.mercadolibre.com/items
