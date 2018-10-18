@@ -1,6 +1,6 @@
 # Mercado Livre Search
 
-> A simple search application using the mercado libre API's.
+> A simple search application using the Mercado Libre API's.
 
 ## Development
 
