@@ -1,4 +1,4 @@
-# Mercado Livre
+# Mercado Livre Search
 
 ## Development
 
@@ -40,13 +40,19 @@
 
 ## Production
 
-To prepare the dist directory for production enviroment run:
+1. To prepare the `dist` folder for production enviroment run:
 
-```sh
-$ npm run prepublish
-```
+    ```sh
+    $ npm run prepublish
+    ```
 
-This will minify and organize index-prod.html and the `.js`, `.css`, `.jpg`, `.png` and `.woff` files into the `dist` folder.
+    *This will run unity tests, minify and organize `index-prod.html` and the `.js`, `.css`, `.jpg`, `.png` and `.woff` files into the `dist` folder.*
+
+2. Run the live server:
+
+    ```sh
+    $ npm run prepublish
+    ```
 
 ## Tests
 
