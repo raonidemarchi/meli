@@ -51,7 +51,7 @@
 2. Run the application:
 
     ```sh
-    $ npm run start
+    $ npm start
     ```
 
 ## Tests
