@@ -1,5 +1,5 @@
 var gulp   	 			= require('gulp');
-var htmlmin  			= require('gulp-html-minifier2');
+var htmlmin 			= require('gulp-html-minifier');
 var babel 	 			= require('gulp-babel');
 var concat 	 			= require('gulp-concat');
 var rename 	 			= require('gulp-rename');
@@ -12,7 +12,7 @@ var dest = 'dist/';
 
 gulp.task('html', () => {
 	gulp.src('index-prod.html')
-		.pipe(htmlmin({collapseWhitespace: true}))
+		.pipe(htmlmin({ collapseWhitespace: true, removeComments: true, processScripts: ['text/template'] }))
 		.pipe(rename('index.html'))
 		.pipe(gulp.dest(dest))
 });

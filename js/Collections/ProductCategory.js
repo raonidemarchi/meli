@@ -1,6 +1,6 @@
 'use strict'
 MercadoLivreApp.Collections.ProductCategory = Backbone.Collection.extend({
-	url: `${END_POINT}/sites/MLA/search?category=`,
+	url: `${END_POINT}/sites/MLB/search?category=`,
 	model: MercadoLivreApp.Models.ProductCategory,
 
 	sync: function(method, collection, options) {

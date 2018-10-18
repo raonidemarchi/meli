@@ -1,6 +1,6 @@
 'use strict'
 MercadoLivreApp.Collections.ProductList = Backbone.Collection.extend({
-	url: `${END_POINT}/sites/MLA/search`,
+	url: `${END_POINT}/sites/MLB/search`,
 	model: MercadoLivreApp.Models.ProductList,
 
 	sync: function(method, collection, options) {

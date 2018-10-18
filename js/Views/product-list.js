@@ -19,6 +19,9 @@ MercadoLivreApp.Views.ProductList = Backbone.View.extend({
 	search: async function(query = '') {
 		let products = [];
 		
+		if(query === null)
+			return;
+
 		// loading
 		this.$el.html(
 			this.templateLoading() + '<hr>' + this.templateLoading() + '<hr>' + this.templateLoading() + '<hr>' + this.templateLoading()
