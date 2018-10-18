@@ -15,22 +15,28 @@
 3. Install [Gulp](https://gulpjs.com/) globally:
 
     ```sh
-    $ npm install gulp -g
+    $ npm install -g gulp
     ```
 
 4. Install [nodemon](https://nodemon.io/) globally:
 
     ```sh
-    $ npm install nodemon -g
+    $ npm install -g nodemon
     ```
 
-3. Run the `dev` script:
+5. Install [QUnit](https://qunitjs.com/) globally:
+
+    ```sh
+    $ npm install -g qunit
+    ```
+
+6. Run the `dev` script:
 
     ```sh
     $ npm run dev
     ```
 
-*This will start the express server on the local server: [http://localhost:8080](http://localhost:8080)*
+    *This will start the express server on the local server: [http://localhost:8080](http://localhost:8080)*
 
 ## Production
 
@@ -40,7 +46,7 @@ To prepare the dist directory for production enviroment run:
 $ npm run prepublish
 ```
 
-This will minify and organize index-prod.html and the `.js`, `.css`, `.jpg`, `.png` and `.woff` files into the `dist` folder
+This will minify and organize index-prod.html and the `.js`, `.css`, `.jpg`, `.png` and `.woff` files into the `dist` folder.
 
 ## Tests
 
