@@ -48,10 +48,10 @@
 
     *This will run unity tests, minify and organize `index-prod.html` and the `.js`, `.css`, `.jpg`, `.png` and `.woff` files into the `dist` folder.*
 
-2. Run the live server:
+2. Run the application:
 
     ```sh
-    $ npm run prepublish
+    $ npm run start
     ```
 
 ## Tests
