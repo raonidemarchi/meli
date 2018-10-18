@@ -74,6 +74,6 @@ To access the live demo visit: https://raonidemarchi.github.io/meli/.
 ## Used API's
 
 - https://api.mercadolibre.com/
-- https://api.mercadolibre.com/sites/MLA/search?category
-- https://api.mercadolibre.com/sites/MLA/search
+- https://api.mercadolibre.com/sites/MLB/search?category
+- https://api.mercadolibre.com/sites/MLB/search
 - https://api.mercadolibre.com/items
