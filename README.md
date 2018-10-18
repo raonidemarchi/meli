@@ -1,4 +1,6 @@
-# Mercado Livre
+# Mercado Livre Search
+
+> A simple search application using the Mercado Libre API's.
 
 ## Development
 
@@ -40,13 +42,19 @@
 
 ## Production
 
-To prepare the dist directory for production enviroment run:
+1. To prepare the `dist` folder for production enviroment run:
 
-```sh
-$ npm run prepublish
-```
+    ```sh
+    $ npm run prepublish
+    ```
 
-This will minify and organize index-prod.html and the `.js`, `.css`, `.jpg`, `.png` and `.woff` files into the `dist` folder.
+    *This will run unity tests, minify and organize `index-prod.html` and the `.js`, `.css`, `.jpg`, `.png` and `.woff` files into the `dist` folder.*
+
+2. Run the application:
+
+    ```sh
+    $ npm start
+    ```
 
 ## Tests
 
@@ -61,3 +69,11 @@ The tests will run in the terminal using QUnit.
 ## Live Demo
 
 To access the live demo visit: https://raonidemarchi.github.io/meli/.
+
+
+## Used API's
+
+- https://api.mercadolibre.com/
+- https://api.mercadolibre.com/sites/MLB/search?category
+- https://api.mercadolibre.com/sites/MLB/search
+- https://api.mercadolibre.com/items
