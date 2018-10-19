@@ -1,4 +1,4 @@
-# Mercado Livre Search
+# Mercado Libre Search
 
 > A simple search application using the Mercado Libre API's.
 
