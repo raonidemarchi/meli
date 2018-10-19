@@ -26,7 +26,7 @@
     $ npm install -g nodemon
     ```
     
-5. Install [Sass](https://sass-lang.com/install) globally:
+5. Install [Sass](https://sass-lang.com/) globally:
 
     ```sh
     $ npm install -g sass
