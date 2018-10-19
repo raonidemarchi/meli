@@ -20,13 +20,12 @@ gulp.task('html', () => {
 gulp.task('js', () => {
     return merge(
 		gulp.src(['assets/js/jquery-3.3.1.min.js', 'assets/js/underscore-min.js', 'assets/js/backbone-min.js']),
-		gulp.src(['js/*.js', 'js/**/*.js'])
-			.pipe(gulp_remove_logging())
-			.pipe(babel({
-				presets: ['minify']
-			}))
+		gulp.src(['js/*.js', 'js/**/*.js']).pipe(gulp_remove_logging())
 	)
 	.pipe(concat('js/all.min.js'))
+	.pipe(babel({
+		presets: ['minify']
+	}))
 	.pipe(gulp.dest(dest));
 });
 
