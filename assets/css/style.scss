@@ -1,58 +1,7 @@
-/* Fonts */
-@font-face {
-	font-family: 'Proxima Nova';
-	font-weight: 300;
-	font-display: swap;
-	font-style: normal;
-	src: url(../font/proximanova-light.woff2) format("woff2"),
-		 url(../font/proximanova-light.woff) format("woff"),
-		 url(../font/proximanova-light.ttf) format("truetype")
-}
-	
-@font-face {
-	font-family: 'Proxima Nova';
-	font-weight: 400;
-	font-display: swap;
-	font-style: normal;
-	src: url(../font/proximanova-regular.woff2) format("woff2"),
-		 url(../font/proximanova-regular.woff) format("woff"),
-		 url(../font/proximanova-regular.ttf) format("truetype")
-}
-
-@font-face {
-	font-family: 'Proxima Nova';
-	font-weight: 600;
-	font-display: swap;
-	font-style: normal;
-	src: url(../font/proximanova-semibold.woff2) format("woff2"),
-		 url(../font/proximanova-semibold.woff) format("woff"),
-		 url(../font/proximanova-semibold.ttf) format("truetype")
-}
-
-/* colors pallete */
-$color: (
-    yellow: #FFE600,
-    grey-1: #333,
-    grey-2: #666,
-    grey-3: #999,
-    grey-4: #EEE,
-    blue: #3483FA,
-);
-
-/* variables */
-$font-family:  Proxima Nova, -apple-system, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
-$shadow: 0 1px 0 0 rgba(0, 0, 0, .1);
-
-/* functions */
-@function color($color-name) {
-    @return map-get($color, $color-name);
-}
-
-@mixin small {
-    @media (max-width: 800px) {
-        @content;
-    }
-}
+@import 'fonts';
+@import 'consts';
+@import 'functions';
+@import 'mixins';
 
 body {
 	font-family: $font-family;

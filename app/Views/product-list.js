@@ -5,6 +5,7 @@ MercadoLivreApp.Views.ProductList = Backbone.View.extend({
 	template: _.template($('#itemTemplate').html()),
 	templateLoading: _.template($('#itemLoadingTemplate').html()),
 	templateBreadcrumbLoading: _.template($('#breadcrumbLoadingTemplate').html()),
+	templateLoadingError: _.template($('#loadingErrorTemplate').html()),
 	collection: new MercadoLivreApp.Collections.ProductList,
 	
 	initialize: function(options) {
@@ -17,10 +18,13 @@ MercadoLivreApp.Views.ProductList = Backbone.View.extend({
 	},
 	
 	search: async function(query = '') {
+		let result	 = {};
 		let products = [];
 		
-		if(query === null)
+		if(query === null) {
+			this.$el.html('Faça sua busca na barra superior.');
 			return;
+		}
 
 		// loading
 		this.$el.html(
@@ -28,10 +32,19 @@ MercadoLivreApp.Views.ProductList = Backbone.View.extend({
 		);
 		this.breadcrumb.html(this.templateBreadcrumbLoading());
 		
-		products = await this.collection.fetch({ data: { query: query }});
+		result = await this.collection.fetch({ data: { query: query }});
+
+		// connection error
+		if(result.status !== 200) {
+			this.$el.html(this.templateLoadingError({ currentURL: window.location.href }));
+			this.breadcrumb.html('');
+			return;
+		}
+
+		products = JSON.parse(result.responseText);
 
 		console.log('products list', products);
-		
+
 		// no results
 		if(products.results.length == 0) {
 			this.$el.html('<p>Nenhum resultado encontrado para sua pesquisa - <b>' + query + '</b></p>');

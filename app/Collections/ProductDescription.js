@@ -1,16 +1,16 @@
 'use strict'
-MercadoLivreApp.Collections.ProductDetail = Backbone.Collection.extend({
+MercadoLivreApp.Collections.ProductDescription = Backbone.Collection.extend({
 	url: `${END_POINT}/items/`,
-	model: MercadoLivreApp.Models.ProductDetail,
+	model: MercadoLivreApp.Models.ProductDescription,
 
 	sync: function(method, collection, options) {
 		return new Promise(resolve => {
 			let id 	= options.data.id;
 			let xhr = new XMLHttpRequest();
 
-			xhr.open('GET', `${collection.url}${id}`, true);
+			xhr.open('GET', `${collection.url}${id}/description`, true);
 			xhr.onloadend = function() {
-				resolve(JSON.parse(this.responseText));
+				resolve(this);
 			};
 
 			xhr.send();

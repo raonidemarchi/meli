@@ -10,7 +10,7 @@
 		<title>Mercado Livre</title>
 		
 		<link rel="canonical" href="https://www.mercadolivre.com.br/">
-		<link rel="shortcut icon" href="img/favicon.ico">
+		<link rel="shortcut icon" href="assets/img/favicon.ico">
 		<link rel="stylesheet" href="css/all.min.css">
 	</head>
 	
@@ -30,9 +30,7 @@
 		<!-- content -->
 		<div id="content" class="content container">
 			<div id="breadcrumb" class="breadcrumb"></div>
-			<div id="result" class="card">
-				Faça sua busca na barra superior.
-			</div>
+			<div id="result" class="card"></div>
 		</div>
 		
 		<!-- product list template -->
@@ -111,7 +109,7 @@
 		<!-- product detail error template -->
 		<script type="text/template" id="itemDetailErrorTemplate">
 			<div class="error-container">
-				<p>Produto não encontrado</p>
+				<p>Produto não encontrado.</p>
 				<a href="">Voltar para tela inicial</a>
 			</div>
 		</script>
@@ -119,6 +117,14 @@
 		<!-- product detail error template -->
 		<script type="text/template" id="breadcrumbLoadingTemplate">
 			<div class="placeholder-loading" style="height: 20px; max-width: 100px; background-color: #ddd;"></div>
+		</script>
+
+		<!-- loading error template -->
+		<script type="text/template" id="loadingErrorTemplate">
+			<div class="error-container">
+				<p>Não foi possível conectar com o Mercado Livre.</p>
+				<a href="<%= currentURL %>" onclick="reloadPage(event)">Tentar novamente</a>
+			</div>
 		</script>
 		
 		<!-- libs -->

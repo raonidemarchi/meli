@@ -6,6 +6,7 @@ MercadoLivreApp.Views.ProductDetail = Backbone.View.extend({
 	templateLoading: _.template($('#itemDetailLoadingTemplate').html()),
 	templateError: _.template($('#itemDetailErrorTemplate').html()),
 	templateBreadcrumbLoading: _.template($('#breadcrumbLoadingTemplate').html()),
+	templateLoadingError: _.template($('#loadingErrorTemplate').html()),
 	collection: new MercadoLivreApp.Collections.ProductDetail,
 	collectionDescription: new MercadoLivreApp.Collections.ProductDescription,
 	collectionCategory: new MercadoLivreApp.Collections.ProductCategory,
@@ -23,26 +24,36 @@ MercadoLivreApp.Views.ProductDetail = Backbone.View.extend({
 	},
 	
 	getItem: async function(id = '') {
-		let results   = [];
-		let product   = {};
-		let category  = {};
+		let results  = [];
+		let product	 = {};
+		let category = {};
 		
 		// loading
 		this.$el.html(this.templateLoading());
 		this.breadcrumb.html(this.templateBreadcrumbLoading());
 		
+		// API's reponse
 		results = await Promise.all([
 			this.collection.fetch({ data: { id: id }}),
 			this.collectionDescription.fetch({ data: { id: id }})
 		]);
-		
-		if(results[0].status == 404) {
+
+		// product not found
+		if(results[0].status === 404) {
 			this.$el.html(this.templateError());
+			this.breadcrumb.html('');
+			return;
+		}
+
+		// connection error
+		if(results[0].status !== 200 || results[1].status !== 200) {
+			this.$el.html(this.templateLoadingError({ currentURL: window.location.href }));
+			this.breadcrumb.html('');
 			return;
 		}
 		
 		// Merge objects. New method for EcmaScript 2018: product = { ...results[0], ...results[1] } (Today, only supported by Chrome and Firefox);
-		product = Object.assign({}, results[0], results[1]);
+		product = Object.assign({}, JSON.parse(results[0].responseText), JSON.parse(results[1].responseText));
 		
 		console.log('product details and description', product);
 		

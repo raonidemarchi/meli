@@ -1,6 +1,6 @@
 'use strict'
 
-require('../js/helper.js');
+require('../app/helper.js');
 QUnit.module('Helper functions');
 
 QUnit.test('format money test', (assert) => {

@@ -17,3 +17,8 @@ Number.prototype.formatMoney = function(c, d, t) {
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 }
+
+let reloadPage = function(e) {
+	e.preventDefault();
+	location.reload();
+}

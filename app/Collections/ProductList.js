@@ -10,7 +10,7 @@ MercadoLivreApp.Collections.ProductList = Backbone.Collection.extend({
 
 			xhr.open('GET', `${collection.url}?q=${query}&limit=4`, true);
 			xhr.onloadend = function() {
-				resolve(JSON.parse(this.responseText));
+				resolve(this);
 			};
 
 			xhr.send();
