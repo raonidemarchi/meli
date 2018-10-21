@@ -61,7 +61,7 @@
     ```sh
     $ npm start
     ```
-    *This will start the express server on the local server: [http://localhost](http://localhost)*
+    *This will call the `index.html` file in the `dist` folder and start the local server: [http://localhost](http://localhost)*
 
 ## Tests
 
