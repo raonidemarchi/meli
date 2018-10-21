@@ -61,7 +61,7 @@
     ```sh
     $ npm start
     ```
-    *This will start the local server: [http://localhost](http://localhost), poiting to the `dist` folder*
+    *This will start the local server: [http://localhost](http://localhost), serving the `dist` folder*
 
 ## Tests
 
