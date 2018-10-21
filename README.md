@@ -44,7 +44,7 @@
     $ npm run dev
     ```
 
-    *This will start the express server on the local server: [http://localhost:8080](http://localhost:8080)*
+    *This will start the local server: [http://localhost:8080](http://localhost:8080)*
 
 ## Production
 
@@ -61,7 +61,7 @@
     ```sh
     $ npm start
     ```
-    *This will call the `index.html` file in the `dist` folder and start the local server: [http://localhost](http://localhost)*
+    *This will start the local server: [http://localhost](http://localhost), poiting to the `dist` folder*
 
 ## Tests
 
