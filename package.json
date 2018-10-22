@@ -8,6 +8,7 @@
     "start": "nodemon server/server-prod.js",
     "prepublish": "npm run gulp && npm test",
     "gulp": "gulp dist",
+    "sass": "sass --watch assets/scss/style.scss assets/css/style.css",
     "test": "qunit test/*.js"
   },
   "repository": {
